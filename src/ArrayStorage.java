@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -8,9 +9,7 @@ public class ArrayStorage {
     private static int size = 0;
 
     void clear() {
-        for (int i = 0; i < size; i++) {
-            storage[i] = null;
-        }
+        Arrays.fill(storage, 0, size, null);
         size = 0;
     }
 
@@ -58,11 +57,7 @@ public class ArrayStorage {
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-        Resume[] result = new Resume[size];
-        for (int i = 0; i < size; i++) {
-            result[i] = storage[i];
-        }
-        return result;
+        return  Arrays.copyOfRange(storage,0,size);
     }
 
     int size() {
