@@ -3,7 +3,7 @@ package com.webapp.model;
 /**
  * Initial resume class
  */
-public class Resume {
+public class Resume implements Comparable<Resume>{
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
@@ -36,5 +36,10 @@ public class Resume {
     @Override
     public int hashCode() {
         return uuid != null ? uuid.hashCode() : 0;
+    }
+
+    @Override
+    public int compareTo(Resume o) {
+        return uuid.compareTo(o.uuid);
     }
 }
